@@ -1,0 +1,79 @@
+			     EE 109  - Fall 2021
+				  Rangefinder
+
+
+Review Question 1 (Cost Analysis):
+
+Assume we are building 1000 units of this system.  Use the provided part
+numbers (see the webpage) and the digikey.com or jameco.com website to find the
+total **cost per unit** (again assume we build a quantity of 1000 units) for
+these range finding systems.  Itemize the part costs (list each part and its
+unit cost when bought in units of 1000) and then show the final cost per unit
+below.  Note: You only need to price the components used in the project (not
+all the components in your lab kit.  Also, you do not need to account for the
+cost of the circuit board or wires. In a real environment we would manufacture
+a PCB (Printed Circuit Board). As an optional task, you can search online for
+PCB manufacturers and what the costs and options are in creating a PCB.
+
+UNIT											Quantity			Price
+
+Arduino											1000				$23,000
+LCD Keypad Shield								1000				$8,900
+CFR-25JB-52-680R (680 Ohm's resistor)			1000				$11.33 (Since we are using 2 680 ohm's resistors per unit, we need 2000 total for 1000 units of these range finding systems)
+CFR-25JB-52-1K3 (1300 Ohm's resistor)			1000				$11.33
+Multicolor Buttons(4-pack)						1000				$1440  (Since we are using 2 buttons per unit, and this part comes in 4-packs, thus, we need 500*4 = 2000 buttons for 1000 units of these range finding units)
+SN74HCT00N (IC)									1000				$185.61
+SN74HCT04N (IC)									1000				$166
+3315Y-001-016L (Rotary Encoder)					1000				$1,975.02
+Black and Blue Knob								1000				$890
+CEM-1206S (Buzzer)								1000				$473.24
+Ultrasonic Sensor								1000				$3,950
+RGB LED											1000				$8,990
+
+																	Total Price per unit
+																	$49.9812
+
+Review Question 2 (Health/Safety/Reliability)
+
+Assume this system was to be used in a real industrial monitoring application.
+
+Considering reliability, health, and safety...
+
+ - What scenarios might you suggest testing (considering both HW and SW) 
+    before releasing the product for use? 
+    
+	Answer: I would suggest testing this system under environments when air temperatures
+			are fluctuating, since this fluctuation affects the speed of the ultrasonic
+			sensor's sound waves. Moreover, I would test the HW when multiple ultrasonic sensors
+			are being launched together, because they can interfere with each other's readings 
+			and report different measurements for the same distance.
+			For software suggestions, to get a more accurate reading of the distance measured
+			by the ultrasonic sensor, I would try to write code to display distance with as
+			much decimal points as possible. Also, I would consider testing how accurate the
+			ultrasonic sensor's measurement is by testing a specific distance by hand first,
+			then using the system to measure it
+
+
+
+ - How might you make your design more reliable? By reliability we don't just
+   mean keeping it running correctly (though you should consider that), but
+   also how you can detect that a connected component has failed to gracefully
+   handle such situations.  You can consider both HW and SW points of failure,
+   issues related to the operational environment, etc. and how to mitigate
+   those cases.
+   
+   Answer: To protect against failures in the system, I would use a protection
+   		   system that can take emergency action if a failure occur. For example,
+   		   if the ultrasonic sensor's measurement that is being displayed on the LCD
+   		   screen after we press the acquire measurement button one time, fluctuates between 
+   		   different values instantly and doesn't report one reading at a time, that protection system
+   		   can shutdown or reset the whole system, and starts again.
+   		   A second approach that might make my design more reliable is designing multi channel 
+   		   architectures that self-monitor the system and interferes when inconsistencies occur.
+   		   This can help in mitigating the inaccurate reported errors provided by the ultrasonic sensor.
+
+
+
+
+
+
